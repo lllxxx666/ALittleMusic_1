@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="8dp"
+    android:paddingRight="8dp"
+    tools:context=".ui.home.HomeFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/home_banner"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator
+            android:id="@+id/worm_dots_indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:dotsColor="@color/purple_200"
+            app:dotsCornerRadius="8dp"
+            app:dotsSize="16dp"
+            app:dotsSpacing="4dp"
+            app:dotsStrokeColor="@color/purple_500"
+            app:dotsStrokeWidth="2dp"
+            app:layout_constraintBottom_toBottomOf="@+id/home_banner"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"></com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator>
+
+        <LinearLayout
+            android:id="@+id/home_menus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/worm_dots_indicator">
+
+            <TextView
+                android:id="@+id/home_menu_song"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/ic_calendar"
+                android:drawablePadding="4dp"
+                android:gravity="center"
+                android:text="每日推荐" />
+
+            <TextView
+                android:id="@+id/home_menu_playlist"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/home_playlist"
+                android:drawablePadding="4dp"
+                android:gravity="center"
+                android:text="歌单" />
+
+            <TextView
+                android:id="@+id/home_menu_toplist"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/home_toplist"
+                android:drawablePadding="4dp"
+                android:gravity="center"
+                android:text="排行榜" />
+
+            <TextView
+                android:id="@+id/home_menu_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/ic_playlist"
+                android:drawablePadding="4dp"
+                android:gravity="center"
+                android:text="待开发" />
+
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/home_rplaylist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/home_menus">
+
+            <TextView
+                android:id="@+id/playlist_recommended_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:paddingTop="16sp"
+                android:paddingBottom="16sp"
+                android:text="@string/rPlayList"
+                android:textAppearance="?textAppearanceHeadline6"
+                android:textColor="@color/text_primary"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/rplaylist_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingTop="16sp"
+                android:paddingEnd="16sp"
+                android:paddingBottom="16sp"
+                android:text="@string/more"
+                android:textColor="@color/text_secondary"
+                android:textSize="16sp"
+                app:drawableRightCompat="@drawable/ic_right"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/home_RPlaylist"
+                android:layout_width="match_parent"
+                android:layout_height="350dp"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rplaylist_btn"
+                tools:listitem="@layout/rplaylist_item" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/home_rplaylist">
+            <TextView
+                android:id="@+id/daily_rplaylist_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:paddingTop="16sp"
+                android:paddingBottom="16sp"
+                android:text="@string/rPlayList"
+                android:textAppearance="?textAppearanceHeadline6"
+                android:textColor="@color/text_primary"
+                android:layout_alignParentLeft="true"/>
+
+            <TextView
+                android:id="@+id/daily_rplaylist_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingTop="16sp"
+                android:paddingEnd="16sp"
+                android:paddingBottom="16sp"
+                android:text="@string/more"
+                android:textColor="@color/text_secondary"
+                android:textSize="16sp"
+                app:drawableRightCompat="@drawable/ic_right"
+                android:layout_alignParentRight="true"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/daily_rplaylist"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="invisible"
+                android:layout_below="@id/daily_rplaylist_title"/>
+        </RelativeLayout>
+        <ProgressBar
+            android:id="@+id/home_loading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <!--        <androidx.constraintlayout.widget.ConstraintLayout-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginTop="8dp"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toBottomOf="@+id/home_rplaylist">-->
+
+        <!--            <TextView-->
+        <!--                android:id="@+id/home_toplist"-->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:layout_marginStart="32dp"-->
+        <!--                android:paddingTop="16sp"-->
+        <!--                android:paddingBottom="16sp"-->
+        <!--                android:text="@string/nav_toplist"-->
+        <!--                android:textAppearance="?textAppearanceHeadline6"-->
+        <!--                android:textColor="@color/text_primary"-->
+        <!--                app:layout_constraintStart_toStartOf="parent"-->
+        <!--                app:layout_constraintTop_toTopOf="parent" />-->
+
+        <!--            <TextView-->
+        <!--                android:id="@+id/textView2"-->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:gravity="center"-->
+        <!--                android:paddingTop="16sp"-->
+        <!--                android:paddingEnd="16sp"-->
+        <!--                android:paddingBottom="16sp"-->
+        <!--                android:text="@string/more"-->
+        <!--                android:textColor="@color/text_secondary"-->
+        <!--                android:textSize="16sp"-->
+        <!--                app:drawableRightCompat="@drawable/ic_right"-->
+        <!--                app:layout_constraintEnd_toEndOf="parent"-->
+        <!--                app:layout_constraintTop_toTopOf="parent" />-->
+        <!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

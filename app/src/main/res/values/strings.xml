@@ -1,0 +1,84 @@
+<resources>
+    <string name="app_name">有点儿音乐</string>
+    <string name="nav_home">首页</string>
+    <string name="nav_toplist">排行榜</string>
+    <string name="nav_mine">我的</string>
+    <string name="login">登陆</string>
+    <string name="logout">登出</string>
+    <string name="darkMode">夜间模式</string>
+    <string name="share">分享</string>
+    <string name="Timing_Closure">定时关闭</string>
+
+    <!--    登录-->
+    <string name="forgot"><font coloer="#c4c4c4">是否自动登录？</font> <b>Get help logining in.</b></string>
+    <string name="sign_up"><font coloer="#c4c4c4">没有账户？</font> <b>注册</b></string>
+    <string name="sign_in"><b>登录</b></string>
+
+    <!--    首页-->
+    <string name="playList">歌单</string>
+    <string name="rPlayList">推荐歌单</string>
+    <!--    排行榜-->
+
+    <!--    我的-->
+    <string name="my_love_songs">我喜欢的音乐</string>
+    <string name="recent_play">最近播放</string>
+    <string name="c_playlist">收藏歌单</string>
+    <string name="set">设置</string>
+    <string name="help">帮助与客服</string>
+    <string name="query_and_suggest">问题与建议</string>
+    <string name="checkUpdate">检查更新</string>
+    <string name="about">关于</string>
+
+    <!--    歌单列表-->
+    <string name="playAll">播放全部</string>
+
+    <!--    常用-->
+    <string name="user_img">用户头像</string>
+    <string name="user_name">用户名</string>
+    <string name="more">更多</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="title_activity_player">PlayerActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <!--    LoginActivity-->
+    <string name="prompt_email">请输入邮箱</string>
+    <string name="prompt_phone">请输入手机号</string>
+    <string name="prompt_password">请输入密码</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">密码大于5位</string>
+    <string name="login_failed">"Login failed"</string>
+
+
+    <string name="search_hint">搜索 歌曲和歌单</string>
+    <string name="search">搜索</string>
+    <!--    PlayerActivity-->
+    <string name="media_url_mp3">http://m8.music.126.net/20220418221809/0addb64bfd34b32079c4683f0f12deb4/ymusic/0fd6/4f65/43ed/a8772889f38dfcb91c04da915b301617.mp3</string>
+    <string name="media_url_mp31">https://music.163.com/song/media/outer/url?id=405998841.mp3</string>
+    <string name="song">歌曲</string>
+    <string name="daily_playlist_sub">音乐伴随每一天</string>
+    <string name="song_single_square">歌单广场</string>
+
+    <string name="notification_channel">现在播放</string>
+    <string name="notification_channel_description">显示应用中当前正在播放的音乐</string>
+
+    <!-- Allowed caller template -->
+    <string name="allowed_caller_log">
+        Caller has a valid certificate, but its package doesn\'t match any expected package for the
+        given certificate. To allow this caller, add the following to the allowed callers list:\n
+        <![CDATA[
+        <signature name=\"%1$s\" package=\"%2$s\">\n\t<key>%3$s</key>\n</signature>\n
+        ]]>
+    </string>
+    <string name="phone_login_text">手机登录</string>
+    <string name="email_login_text">邮箱登录</string>
+    <string name="collect">收藏</string>
+    <string name="add_collect">+ 收藏</string>
+    <string name="collected">已收藏</string>
+
+</resources>

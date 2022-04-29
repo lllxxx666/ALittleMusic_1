@@ -1,0 +1,59 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="Widget.Theme.ALittleMusic.ActionBar.Fullscreen" parent="Widget.AppCompat.ActionBar">
+        <item name="android:background">@color/black_overlay</item>
+    </style>
+
+    <style name="Widget.Theme.ALittleMusic.ButtonBar.Fullscreen" parent="">
+        <item name="android:background">@color/black_overlay</item>
+        <item name="android:buttonBarStyle">?android:attr/buttonBarStyle</item>
+    </style>
+
+    <style name="mEditText">
+        <item name="android:padding">12dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:background">@drawable/bg_edit_text</item>
+    </style>
+
+
+
+    <style name="playStyle">
+        <item name="android:textSize">0sp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:button">@null</item>
+        <item name="android:drawablePadding">20dp</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+    <style name="playStyle1">
+        <item name="android:gravity">center</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_width">50dp</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+
+    <!-- Splash启动页Style -->
+    <style name="Theme.SplashScreen.Demo" parent="Theme.SplashScreen">
+        <!--启动画面背景颜色-->
+        <item name="windowSplashScreenBackground">@color/background</item>
+        <!-- 启动画面icon图标：这里可以是图片、帧动画等-->
+        <item name="windowSplashScreenAnimatedIcon">@raw/music</item>
+<!--        <item name="windowSplashScreenIconBackgroundColor">@color/splashscreen_icon_bg</item>-->
+        <!-- icon动画在关闭之前显示的时长：最长时间为1000毫秒-->
+        <item name="windowSplashScreenAnimationDuration">1000</item>
+        <!-- 启动画面底部的 Brand 图片-->
+        <item name="android:windowSplashScreenBrandingImage" tools:targetApi="s">@mipmap/round_icon</item>
+        <!-- Splash退出后的主题-->
+        <item name="postSplashScreenTheme">@style/Theme.ALittleMusic</item>
+    </style>
+
+<!--    Toolbar -->
+    <style name="Toolbar_MyStyle" parent="Widget.Material3.Toolbar">
+        <item name="contentInsetStart">0dp</item>
+        <item name="contentInsetStartWithNavigation">0dp</item>
+    </style>
+</resources>

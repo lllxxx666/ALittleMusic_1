@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.recentPlay.RecentPlayActivity">
+
+   <RelativeLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+
+       <androidx.appcompat.widget.Toolbar
+           android:id="@+id/toolbar"
+           android:layout_width="match_parent"
+           android:layout_height="?attr/actionBarSize"
+           android:background="@android:color/transparent"
+           android:fitsSystemWindows="true"
+           style="@style/Toolbar_MyStyle"
+           app:titleTextColor="@color/toolbar_title"
+           app:navigationIcon="@drawable/ic_back"
+           app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+
+       <LinearLayout
+           android:id="@+id/recent_play_bar"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_marginTop="?attr/actionBarSize"
+           android:orientation="horizontal">
+
+           <TextView
+               android:id="@+id/recent_play_all"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:drawablePadding="8dp"
+               android:gravity="center_vertical"
+               android:padding="8.0dip"
+               android:text="@string/playAll"
+               android:textColor="@color/text_primary"
+               android:textSize="18.0sp"
+               android:textStyle="bold"
+               app:drawableLeftCompat="@drawable/ic_playon_fill"
+               app:layout_constraintEnd_toEndOf="parent"
+               app:layout_constraintStart_toStartOf="parent"
+               app:layout_constraintTop_toBottomOf="@+id/constraintLayout2" />
+
+           <TextView
+               android:id="@+id/recent_list_count"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_gravity="center_vertical"
+               android:layout_weight="1"
+               android:gravity="center_vertical"
+               android:text="( 0 )"
+               android:textColor="@color/text_secondary" />
+
+       </LinearLayout>
+
+       <androidx.recyclerview.widget.RecyclerView
+           android:id="@+id/recent_playList"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:visibility="gone"
+           android:layout_below="@+id/recent_play_bar"
+           app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+           tools:listitem="@layout/playlist_fragment" />
+
+       <TextView
+           android:id="@+id/recent_playList_text"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_below="@+id/recent_play_bar"
+           android:layout_centerInParent="true"
+           android:gravity="center"
+           android:visibility="gone"
+           android:layout_marginTop="16dp"
+           android:text="暂无播放，赶快来听歌吧"
+           android:textSize="24sp" />
+
+       <ProgressBar
+           android:id="@+id/recent_plist_loading"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_centerInParent="true"
+           android:layout_gravity="center"
+           android:layout_marginTop="64dp"
+           android:layout_marginBottom="64dp"
+           android:visibility="visible" />
+
+   </RelativeLayout>
+</androidx.core.widget.NestedScrollView>

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.search.SearchFragment">
+
+   <androidx.core.widget.NestedScrollView
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+
+      <RelativeLayout
+          android:layout_width="match_parent"
+          android:layout_height="match_parent">
+
+          <androidx.cardview.widget.CardView
+              android:id="@+id/search_all_songs_card"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              app:cardCornerRadius="8dp"
+              app:cardElevation="0dp"
+              app:cardMaxElevation="0dp"
+              android:visibility="gone">
+              <LinearLayout
+                  android:orientation="vertical"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:padding="16dp">
+
+                  <TextView
+                      android:id="@+id/search_all_songs_title"
+                      android:layout_width="wrap_content"
+                      android:layout_height="match_parent"
+                      android:text="@string/song"
+                      android:textColor="@color/text_primary"
+                      android:textSize="20sp" />
+
+                  <androidx.recyclerview.widget.RecyclerView
+                      android:id="@+id/search_all_songs"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:visibility="gone"
+                      tools:listitem="@layout/songlsit_item" />
+
+                  <View
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:background="@drawable/divider_horizontal" />
+
+                  <TextView
+                      android:id="@+id/search_all_songs_btn"
+                      android:layout_width="match_parent"
+                      android:layout_height="24dp"
+                      android:layout_marginTop="8dp"
+                      android:gravity="center"
+                      android:textColor="@color/text_primary"
+                      android:textSize="16sp" />
+              </LinearLayout>
+          </androidx.cardview.widget.CardView>
+
+          <androidx.cardview.widget.CardView
+              android:id="@+id/search_all_list_card"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_below="@+id/search_all_songs_card"
+              app:cardCornerRadius="8dp"
+              app:cardElevation="0dp"
+              app:cardMaxElevation="0dp"
+              android:visibility="gone"
+              android:layout_marginTop="16dp">
+             <LinearLayout
+                 android:orientation="vertical"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:padding="16dp">
+
+                 <TextView
+                     android:id="@+id/search_all_list_title"
+                     android:layout_width="wrap_content"
+                     android:layout_height="match_parent"
+                     android:text="@string/playList"
+                     android:textColor="@color/text_primary"
+                     android:textSize="20sp" />
+
+                 <androidx.recyclerview.widget.RecyclerView
+                     android:id="@+id/search_all_list"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:visibility="invisible"
+                     tools:listitem="@layout/playlist_item" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/divider_horizontal" />
+
+                 <TextView
+                     android:id="@+id/search_all_list_btn"
+                     android:layout_width="match_parent"
+                     android:layout_height="24dp"
+                     android:layout_marginTop="8dp"
+                     android:gravity="center"
+                     android:textColor="@color/text_primary"
+                     android:textSize="16sp" />
+             </LinearLayout>
+
+          </androidx.cardview.widget.CardView>
+
+          <androidx.recyclerview.widget.RecyclerView
+              android:id="@+id/search_result_songs"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:visibility="gone"
+              app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+              tools:listitem="@layout/songlsit_item" />
+
+          <androidx.recyclerview.widget.RecyclerView
+              android:id="@+id/search_result_list"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:visibility="gone"
+              tools:listitem="@layout/playlist_item" />
+
+      </RelativeLayout>
+
+   </androidx.core.widget.NestedScrollView>
+
+</FrameLayout>
