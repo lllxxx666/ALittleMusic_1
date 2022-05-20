@@ -22,20 +22,11 @@
         <activity
             android:name=".ui.recentPlay.RecentPlayActivity"
             android:exported="false"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".ui.listSquare.ListSquareActivity"
             android:exported="false"
             android:parentActivityName=".MainActivity" />
-
-        <service
-            android:name=".ui.player.PlayerService"
-            android:enabled="true"
-            android:exported="false">
-            <intent-filter>
-                <action android:name="android.media.browse.MediaBrowserService" />
-            </intent-filter>
-        </service>
 
         <activity
             android:name=".ui.SplashScreenActivity"
@@ -58,8 +49,8 @@
         <activity
             android:name=".ui.search.SearchActivity"
             android:exported="false"
-            android:parentActivityName=".MainActivity"
             android:launchMode="singleTop"
+            android:parentActivityName=".MainActivity"
             android:screenOrientation="fullSensor">
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH" />

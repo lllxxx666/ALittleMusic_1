@@ -9,10 +9,12 @@ import okhttp3.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.io.IOException
+import java.util.concurrent.TimeUnit
 
 object ServiceCreator {
 
     private const val BASE_URL = "https://www.liuxin-bs.com/"
+    private const val TIME_OUT_LENGTH = 8L
 
     val builder = getOkHttpClientBuilder(context)
 
@@ -20,16 +22,20 @@ object ServiceCreator {
         val builder = OkHttpClient.Builder().apply {
             retryOnConnectionFailure(true)//错误重连
 //            cookieJar(Cookie.Builder)
+            callTimeout(TIME_OUT_LENGTH, TimeUnit.SECONDS)
+            connectTimeout(TIME_OUT_LENGTH, TimeUnit.SECONDS)
+            readTimeout(TIME_OUT_LENGTH, TimeUnit.SECONDS)
+            writeTimeout(TIME_OUT_LENGTH, TimeUnit.SECONDS)
             val headerInterceptor: Interceptor = object : Interceptor{
                 @Throws(IOException::class)
                 override fun intercept(chain: Interceptor.Chain): Response {
                     val originalRequest = chain.request()
                     val requestBuilder = originalRequest.newBuilder()
-                        .addHeader("Accept-Encoding","gzip")
+                        .addHeader("Accept-Encoding","gzip, deflate, br")
                         .addHeader("Accept","application/json")
                         .addHeader("Content-Type","application/json; charset=utf-8")
-                        .addHeader("xhrFields","{ withCredentials: true }")
-                        .addHeader("User-Agent","7d384af7d1b0908e7b6f25de5142a9c54ba2a162576a5131016b270f7c497bdc993166e004087dd388801f7711c82f1bd07dd68cd3eabc7746b14e3f0c3f8af9fe5c85647582a507")
+//                        .addHeader("xhrFields","{ withCredentials: true }")
+//                        .addHeader("User-Agent","7d384af7d1b0908e7b6f25de5142a9c54ba2a162576a5131016b270f7c497bdc993166e004087dd388801f7711c82f1bd07dd68cd3eabc7746b14e3f0c3f8af9fe5c85647582a507")
 //                        .method(originalRequest.method(), originalRequest.body()).apply {
 //                            addHeader("Authorization","Bearer " +"7d384af7d1b0908e7b6f25de5142a9c54ba2a162576a5131016b270f7c497bdc993166e004087dd388801f7711c82f1bd07dd68cd3eabc7746b14e3f0c3f8af9fe5c85647582a507")//添加请求头信息，服务器进行token有效性验证
 //                        }

@@ -10,7 +10,7 @@ import com.google.gson.annotations.SerializedName
  */
 data class DayRecommendResponse (
     @SerializedName("code")
-    val code: Number,
+    val code: Int,
     @SerializedName("featureFirst")
     val featureFirst: Boolean,
     @SerializedName("haveRcmdSongs")
@@ -44,7 +44,7 @@ data class DayRecommendResponse (
         @SerializedName("type")
         val type: Int,
         @SerializedName("userId")
-        val userId: Int
+        val userId: Number
     )
 
     data class Creator(
@@ -95,7 +95,7 @@ data class DayRecommendResponse (
         @SerializedName("signature")
         val signature: String,
         @SerializedName("userId")
-        val userId: Int,
+        val userId: Number,
         @SerializedName("userType")
         val userType: Int,
         @SerializedName("vipType")
@@ -113,7 +113,7 @@ data class DayRecommendSongResponse(
 
     data class DayRecommendSong(
         @SerializedName("dailySongs")
-        val dailySongs: List<DailySong>,
+        val dailySongs: List<Song>,
         @SerializedName("orderSongs")
         val orderSongs: List<Any>,
         @SerializedName("recommendReasons")

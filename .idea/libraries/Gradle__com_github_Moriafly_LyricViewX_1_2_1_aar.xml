@@ -1,9 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: com.github.Moriafly:LyricViewX:1.2.1@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/b915bbd67b2f6dbf4288770400b156df/transformed/jetified-LyricViewX-1.2.1/AndroidManifest.xml" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/b915bbd67b2f6dbf4288770400b156df/transformed/jetified-LyricViewX-1.2.1/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/b915bbd67b2f6dbf4288770400b156df/transformed/jetified-LyricViewX-1.2.1/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/684c07b2035bbe2e59d50c572605dcc3/transformed/jetified-LyricViewX-1.2.1/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/684c07b2035bbe2e59d50c572605dcc3/transformed/jetified-LyricViewX-1.2.1/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/684c07b2035bbe2e59d50c572605dcc3/transformed/jetified-LyricViewX-1.2.1/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

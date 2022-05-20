@@ -1,6 +1,8 @@
 package com.example.alittlemusic.ui.mine
 
+import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -38,6 +40,7 @@ class MineFragment : Fragment() {
 
         _binding = FragmentMineBinding.inflate(inflater, container, false)
         val root: View = binding.root
+
 
         initMenuData()
         val layoutManager = LinearLayoutManager(activity)
@@ -104,6 +107,18 @@ class MineFragment : Fragment() {
             }
         }
         return root
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+
+        activity?.getSharedPreferences("data", Context.MODE_PRIVATE).apply {
+            if (this != null){
+                val userinfo = getStringSet("user_info",null)
+                Log.d("test", "用户信息"+userinfo)
+            }
+
+       }
     }
 
     private fun showPlayList() {

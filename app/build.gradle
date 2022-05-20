@@ -86,16 +86,12 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.13.1'
 //    动画
     implementation 'com.airbnb.android:lottie:5.0.3'
-//    媒体播放-exoplayer
-    implementation 'com.google.android.exoplayer:exoplayer:2.17.1'
-    implementation 'com.google.android.exoplayer:exoplayer-core:2.17.1'
-    implementation 'com.google.android.exoplayer:exoplayer-dash:2.17.1'
-    implementation 'com.google.android.exoplayer:exoplayer-ui:2.17.1'
-    implementation 'com.google.android.exoplayer:extension-mediasession:2.16.0'
 //    图片圆角
     implementation 'com.makeramen:roundedimageview:2.3.0'
 //    取图片色调
     implementation 'androidx.palette:palette:1.0.0'
+//    ExoPlayer
+    implementation 'com.google.android.exoplayer:exoplayer-ui:2.14.1'
 //    歌词控件
     implementation 'com.github.Moriafly:LyricViewX:1.2.1'
 //      StarrySky 音频封装库

@@ -1,15 +1,17 @@
 package com.example.alittlemusic
 
-import android.app.SearchManager
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
+import android.os.Process.killProcess
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.ImageView
 import android.widget.SearchView
+import android.widget.TextView
 import android.widget.Toast
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatDelegate
@@ -20,11 +22,14 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.bumptech.glide.Glide
 import com.example.activitytest.BaseActivity
 import com.example.activitytest.isDarkTheme
 import com.example.alittlemusic.baseClass.MyApplication
+import com.example.alittlemusic.baseClass.MyApplication.Companion.context
 import com.example.alittlemusic.databinding.ActivityMainBinding
 import com.example.alittlemusic.ui.search.SearchActivity
+import com.example.alittlemusic.util.toast
 import com.google.android.material.navigation.NavigationView
 
 class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -82,17 +87,24 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-//        跳转操作
-//        val btn :TextView = findViewById(R.id.home_menu_song)
-//        btn.setOnClickListener {
-//            PlayerActivity.actionStart(this, "data1", "data2")
-//        }
+
         binding.fakeSerarchview.setOnClickListener {
             SearchActivity.actionStart(this@MainActivity,"海阔天空")
         }
+
+        initUserInfo()
     }
 
+    private fun initUserInfo() {
+//        val user_name = activity?.findViewById<TextView>(R.id.menu_user_name)
+//        user_name?.text = getString(R.string.fake_user_name)
+        val img = findViewById<ImageView>(R.id.menu_user_img)
+        val url = "https://p4.music.126.net/PKBd8tfF2RSoZaRufP4uoA==/109951163340483924.jpg"
+        if (img != null) {
+            Glide.with(img).load(url).dontAnimate().into(img)
+        }
 
+    }
 
 //    override fun onCreateOptionsMenu(menu: Menu): Boolean {
 //        // Inflate the menu; this adds items to the action bar if it is present.
@@ -133,12 +145,20 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         when (item.itemId){
 //            R.id.menu_login -> LoginActivity.actionStart(MyApplication.context)
             R.id.menu_logout -> {
-                Toast.makeText(this,"退出登录",Toast.LENGTH_SHORT).show()
+                toast("退出登录")
                 val editor = getSharedPreferences("data",Context.MODE_PRIVATE).edit()
                 editor.let {
                     it.putBoolean("isLogin",false)
                     it.apply()
                 }
+                context.packageManager.getLaunchIntentForPackage(context.packageName)?.apply {
+                    // 清空栈里所有的Activity
+                    addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                    context.startActivity(this)
+                }
+//                结束所有进程
+                android.os.Process.killProcess(android.os.Process.myPid())
+
             }
             R.id.menu_darkMode -> {
                 if (isDarkTheme(this)) AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)

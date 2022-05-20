@@ -5,8 +5,9 @@
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/511d38654ed12a355c11e3792dec920c/transformed/jetified-MobGuardMCFP-2022.0218.1419/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/385cda581e4227ff6faef42ce096f49e/transformed/jetified-MobGuardMCFP-2022.0218.1419/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/e00f98a9ad5bdc2753004f2927702e9f/transformed/jetified-MobGuardMCFP-2022.0218.1419/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/e00f98a9ad5bdc2753004f2927702e9f/transformed/jetified-MobGuardMCFP-2022.0218.1419/AndroidManifest.xml" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/e00f98a9ad5bdc2753004f2927702e9f/transformed/jetified-MobGuardMCFP-2022.0218.1419/jars/classes.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/d1cb53bcd05c669ee60532b1170d02ab/transformed/jetified-MobGuardMCFP-2022.0218.1419/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/d1cb53bcd05c669ee60532b1170d02ab/transformed/jetified-MobGuardMCFP-2022.0218.1419/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/d1cb53bcd05c669ee60532b1170d02ab/transformed/jetified-MobGuardMCFP-2022.0218.1419/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.lifecycle.liveData
 import com.example.alittlemusic.data.logic.dao.Banner
 import com.example.alittlemusic.data.logic.network.mNetwork
+import com.example.alittlemusic.util.toast
 import kotlinx.coroutines.Dispatchers
 import kotlin.collections.ArrayList
 import kotlin.coroutines.CoroutineContext
@@ -36,7 +37,7 @@ object HomeRepository{
         val response = mNetwork.getDailySong(timestamp)
         Log.d("test","仓库层，每日推荐歌单"+response.toString())
         if (response.code == 200) {
-            val result = response.data
+            val result = response.data.dailySongs
 //            Log.d("test","仓库层，每日推荐"+result.toString())
             Result.success(result)
         } else {
@@ -48,7 +49,7 @@ object HomeRepository{
         val timecurrentTimeMillis = System.currentTimeMillis()
         val response = mNetwork.getDailyRPlayList(timecurrentTimeMillis)
         if (response.code == 200) {
-            val result = response.recommend
+            val result = response.recommend.filter { it.creator.userType != 10 }
             Result.success(result)
         } else {
             Result.failure(RuntimeException("response status is ${response.code}"))

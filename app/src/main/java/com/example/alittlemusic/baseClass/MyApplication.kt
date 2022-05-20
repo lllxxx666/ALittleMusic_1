@@ -3,10 +3,24 @@ package com.example.alittlemusic.baseClass
 import android.annotation.SuppressLint
 import android.app.Application
 import android.content.Context
+import android.graphics.Bitmap
+import android.graphics.drawable.Drawable
+import android.os.Bundle
+import androidx.core.app.NotificationCompat
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.target.CustomTarget
+import com.bumptech.glide.request.transition.Transition
 import com.drake.brv.BR
 import com.drake.brv.utils.BRV
+import com.example.alittlemusic.R
 import com.example.alittlemusic.data.logic.model.Profile
 import com.lzx.starrysky.StarrySky
+import com.lzx.starrysky.notification.INotification
+import com.lzx.starrysky.notification.NotificationConfig
+import com.lzx.starrysky.notification.NotificationManager
+import com.lzx.starrysky.notification.imageloader.ImageLoaderCallBack
+import com.lzx.starrysky.notification.imageloader.ImageLoaderStrategy
+import com.lzx.starrysky.utils.toSdcardPath
 import retrofit2.http.POST
 
 /**
@@ -37,13 +51,51 @@ open class MyApplication: Application() {
         lateinit var CollectedList: ArrayList<Long>
     }
 
+    @Override
     override fun onCreate() {
         super.onCreate()
         context = applicationContext
 
         BRV.modelId = BR.viewmodel
 
-        StarrySky.init(this).apply()
+
+        val notificationConfig = NotificationConfig.create {
+            targetClass { "com.example.alittlemusic.NotificationReceiver" }
+            targetClassBundle {
+                val bundle = Bundle()
+                bundle.putString("title", "我是点击通知栏转跳带的参数")
+                bundle.putString("targetClass", "com.example.alittlemusic.ui.player.PlayerActivity")
+                //参数自带当前音频播放信息，不用自己传
+                return@targetClassBundle bundle
+            }
+            pendingIntentMode { NotificationConfig.MODE_BROADCAST }
+            smallIconRes { R.drawable.ic_music }
+        }
+        StarrySky.init(this)
+            .setOpenCache(true)
+            .setCacheDestFileDir("AlittleMusicCache/".toSdcardPath())
+            .setCacheMaxBytes(1024 * 1024 * 1024)  //设置缓存上限，默认 512 * 1024 * 1024
+            .setImageLoader(object : ImageLoaderStrategy {
+                //使用自定义图片加载器
+                override fun loadImage(context: Context, url: String?, callBack: ImageLoaderCallBack) {
+                    Glide.with(context).asBitmap().load(url).into(object : CustomTarget<Bitmap?>() {
+                        override fun onLoadCleared(placeholder: Drawable?) {}
+
+                        override fun onResourceReady(resource: Bitmap, transition: Transition<in Bitmap?>?) {
+                            callBack.onBitmapLoaded(resource)
+                        }
+
+                        override fun onLoadFailed(errorDrawable: Drawable?) {
+                            super.onLoadFailed(errorDrawable)
+                            callBack.onBitmapFailed(errorDrawable)
+                        }
+                    })
+                }
+            })
+            .setNotificationSwitch(true)
+            .setNotificationType(INotification.CUSTOM_NOTIFICATION)
+            .setNotificationConfig(notificationConfig)
+            .apply()
 
         //val Context.dataStore: DataStore<Preferences> by preferenceDataStore(name = "cookie")
     }

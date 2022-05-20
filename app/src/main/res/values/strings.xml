@@ -16,10 +16,13 @@
 
     <!--    首页-->
     <string name="playList">歌单</string>
+    <string name="hotPlayList">热门歌单</string>
     <string name="rPlayList">推荐歌单</string>
     <!--    排行榜-->
 
     <!--    我的-->
+    <string name="user_avatar_url">https://p4.music.126.net/PKBd8tfF2RSoZaRufP4uoA==/109951163340483924.jpg</string>
+    <string name="fake_user_name">流萤-君竹</string>
     <string name="my_love_songs">我喜欢的音乐</string>
     <string name="recent_play">最近播放</string>
     <string name="c_playlist">收藏歌单</string>

@@ -35,7 +35,7 @@ interface PlayListService {
     fun getDailyRPlayList(@Field("timecurrentTimeMillis")timecurrentTimeMillis:Long): Call<DayRecommendResponse>
 
     @FormUrlEncoded
-    @POST("user/playlist")      //获取每日推荐歌单
+    @POST("user/playlist?cookie=${MyApplication.fakeCookie}")      //获取每日推荐歌单
     fun getUserPlayList(@Field("uid") uid:Int,@Field("timestamp") timestamp:Long): Call<UserPlayListResponse>
 
     @FormUrlEncoded

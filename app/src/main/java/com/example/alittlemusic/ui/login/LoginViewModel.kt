@@ -28,12 +28,6 @@ class LoginViewModel : ViewModel() {
 
     val loginLiveData = Transformations.switchMap(refreshLiveData){
         UserRepository.login(this.phone!!, this.password!!,login_m)
-//        when(login_m) {
-//            1 ->  return@switchMap UserRepository.login(this.phone!!, this.password!!)
-//            2 -> return@switchMap UserRepository.login(this.email!!, this.password!!)
-//            else -> return@switchMap null
-//        }
-
     }
     fun login(phone: String, password: String) {
         // can be launched in a separate asynchronous job

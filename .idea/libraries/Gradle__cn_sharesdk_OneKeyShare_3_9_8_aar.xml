@@ -1,9 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: cn.sharesdk:OneKeyShare:3.9.8@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/ac2af0973d933d6d5e40256628655798/transformed/jetified-OneKeyShare-3.9.8/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/ac2af0973d933d6d5e40256628655798/transformed/jetified-OneKeyShare-3.9.8/AndroidManifest.xml" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/ac2af0973d933d6d5e40256628655798/transformed/jetified-OneKeyShare-3.9.8/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/45c8577cd5688d1ab57d5140bdb009ca/transformed/jetified-OneKeyShare-3.9.8/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/45c8577cd5688d1ab57d5140bdb009ca/transformed/jetified-OneKeyShare-3.9.8/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/45c8577cd5688d1ab57d5140bdb009ca/transformed/jetified-OneKeyShare-3.9.8/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

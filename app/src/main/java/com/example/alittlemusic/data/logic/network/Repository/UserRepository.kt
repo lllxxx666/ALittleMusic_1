@@ -25,7 +25,7 @@ object UserRepository {
             2->  mNetwork.emailLogin(phone,password)
             else -> mNetwork.phoneLogin(phone,password) //默认手机登录
         }
-        Log.d("test", "登录" +phone + password)
+     //   Log.d("test", "登录" +phone + password)
         if (loginResponse.code == 200) {
             val result = loginResponse
             MyApplication.login_info = result.profile

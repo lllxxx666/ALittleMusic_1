@@ -29,6 +29,7 @@ class TopListAdapter (private val fragment: Fragment, private val list: List<Top
     : RecyclerView.Adapter<TopListAdapter.ViewHolder>(){
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        val toplist_card: View = view.findViewById(R.id.toplist_card)
         val title: TextView = view.findViewById(R.id.toplist_title)
         val img: RoundedImageView = view.findViewById(R.id.toplist_img)
         val updateFrequency: TextView = view.findViewById(R.id.updateFrequency)
@@ -39,7 +40,7 @@ class TopListAdapter (private val fragment: Fragment, private val list: List<Top
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.official_rankings_item, parent, false)
         val holder = ViewHolder(view)
-        holder.itemView.setOnClickListener {
+        holder.toplist_card.setOnClickListener {
             val position = holder.bindingAdapterPosition
             val item = list[position]
             PlayListActivity.actionStart(it.context,"TopList",item.id,PlayListInfo(item.id,item.coverImgUrl,item.name,item.trackCount))
@@ -58,11 +59,6 @@ class TopListAdapter (private val fragment: Fragment, private val list: List<Top
 
         holder.tracks.layoutManager = LinearLayoutManager(Activity())
         holder.tracks.adapter = ListAdapter(item.tracks)
-        Log.d("test","dddd"+ item.tracks)
-//        asBitmap(item.coverImgUrl){bitmap ->
-//            holder.title.setCompoundDrawables(null,null,null,BitmapDrawable(bitmap))
-//        }
-
     }
 
     override fun getItemCount(): Int = list.size

@@ -23,24 +23,47 @@
         <entry key="..\:/AndroidStudioProjects/ALittleMusic/app/src/main/res/menu/activity_main_drawer.xml" value="0.25364583333333335" />
         <entry key="..\:/AndroidStudioProjects/ALittleMusic/app/src/main/res/menu/bottom_nav_menu.xml" value="0.11018518518518519" />
         <entry key="..\:/AndroidStudioProjects/ALittleMusic/app/src/main/res/menu/options_menu.xml" value="0.264" />
+        <entry key="..\:/AndroidStudioProjects/ALittleMusic_1/app/src/main/res/drawable-v24/ic_back_white.xml" value="0.1495" />
         <entry key="..\:/AndroidStudioProjects/ALittleMusic_1/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/ALittleMusic_1/app/src/main/res/drawable-v24/layer_mask.xml" value="0.147" />
         <entry key="..\:/AndroidStudioProjects/ALittleMusic_1/app/src/main/res/drawable/bg_edit_text.xml" value="0.1" />
         <entry key="..\:/AndroidStudioProjects/ALittleMusic_1/app/src/main/res/drawable/collect_sel.xml" value="0.1" />
         <entry key="..\:/AndroidStudioProjects/ALittleMusic_1/app/src/main/res/drawable/daily_songs_bg.xml" value="0.1725" />
         <entry key="..\:/AndroidStudioProjects/ALittleMusic_1/app/src/main/res/drawable/divider_horizontal.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/ALittleMusic_1/app/src/main/res/drawable/exo_icon_queue.xml" value="0.1955" />
+        <entry key="..\:/AndroidStudioProjects/ALittleMusic_1/app/src/main/res/drawable/exo_repeat.xml" value="0.24" />
         <entry key="..\:/AndroidStudioProjects/ALittleMusic_1/app/src/main/res/drawable/gradient.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/ALittleMusic_1/app/src/main/res/drawable/ic_arrow_down.xml" value="0.1495" />
+        <entry key="..\:/AndroidStudioProjects/ALittleMusic_1/app/src/main/res/drawable/ic_audiotrack.xml" value="0.1495" />
+        <entry key="..\:/AndroidStudioProjects/ALittleMusic_1/app/src/main/res/drawable/ic_back.xml" value="0.1495" />
+        <entry key="..\:/AndroidStudioProjects/ALittleMusic_1/app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.1495" />
+        <entry key="..\:/AndroidStudioProjects/ALittleMusic_1/app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.1495" />
         <entry key="..\:/AndroidStudioProjects/ALittleMusic_1/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/ALittleMusic_1/app/src/main/res/drawable/ic_login.xml" value="0.1495" />
+        <entry key="..\:/AndroidStudioProjects/ALittleMusic_1/app/src/main/res/drawable/ic_mine.xml" value="0.1495" />
+        <entry key="..\:/AndroidStudioProjects/ALittleMusic_1/app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.1495" />
         <entry key="..\:/AndroidStudioProjects/ALittleMusic_1/app/src/main/res/drawable/ic_right.xml" value="0.1145" />
         <entry key="..\:/AndroidStudioProjects/ALittleMusic_1/app/src/main/res/drawable/ic_search.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/ALittleMusic_1/app/src/main/res/drawable/ic_search_24.xml" value="0.1495" />
+        <entry key="..\:/AndroidStudioProjects/ALittleMusic_1/app/src/main/res/drawable/line.xml" value="0.1495" />
+        <entry key="..\:/AndroidStudioProjects/ALittleMusic_1/app/src/main/res/drawable/notific_pre.xml" value="0.1795" />
+        <entry key="..\:/AndroidStudioProjects/ALittleMusic_1/app/src/main/res/drawable/notify_btn_dark_next_pressed.xml" value="0.2605" />
+        <entry key="..\:/AndroidStudioProjects/ALittleMusic_1/app/src/main/res/drawable/notify_btn_light_next_selector.xml" value="0.2605" />
+        <entry key="..\:/AndroidStudioProjects/ALittleMusic_1/app/src/main/res/drawable/notify_btn_light_play_normal.xml" value="0.2605" />
+        <entry key="..\:/AndroidStudioProjects/ALittleMusic_1/app/src/main/res/drawable/notify_btn_light_prev_selector.xml" value="0.2605" />
+        <entry key="..\:/AndroidStudioProjects/ALittleMusic_1/app/src/main/res/drawable/notify_next.xml" value="0.1795" />
+        <entry key="..\:/AndroidStudioProjects/ALittleMusic_1/app/src/main/res/drawable/notify_pre.xml" value="0.2605" />
         <entry key="..\:/AndroidStudioProjects/ALittleMusic_1/app/src/main/res/drawable/play_sel.xml" value="0.1" />
         <entry key="..\:/AndroidStudioProjects/ALittleMusic_1/app/src/main/res/drawable/radio_text_sel.xml" value="0.1145" />
+        <entry key="..\:/AndroidStudioProjects/ALittleMusic_1/app/src/main/res/drawable/side_nav_bar.xml" value="0.1495" />
         <entry key="..\:/AndroidStudioProjects/ALittleMusic_1/app/src/main/res/drawable/text_click_color.xml" value="0.1385" />
         <entry key="..\:/AndroidStudioProjects/ALittleMusic_1/app/src/main/res/layout-w1240dp/custom_player_control_view.xml" value="0.24140625" />
         <entry key="..\:/AndroidStudioProjects/ALittleMusic_1/app/src/main/res/layout/activity_exo_player.xml" value="0.16927083333333334" />
         <entry key="..\:/AndroidStudioProjects/ALittleMusic_1/app/src/main/res/layout/activity_list_square.xml" value="0.1" />
         <entry key="..\:/AndroidStudioProjects/ALittleMusic_1/app/src/main/res/layout/activity_login.xml" value="0.2" />
         <entry key="..\:/AndroidStudioProjects/ALittleMusic_1/app/src/main/res/layout/activity_main.xml" value="0.1" />
-        <entry key="..\:/AndroidStudioProjects/ALittleMusic_1/app/src/main/res/layout/activity_player.xml" value="0.17314814814814813" />
+        <entry key="..\:/AndroidStudioProjects/ALittleMusic_1/app/src/main/res/layout/activity_play.xml" value="0.1703125" />
+        <entry key="..\:/AndroidStudioProjects/ALittleMusic_1/app/src/main/res/layout/activity_player.xml" value="0.4" />
         <entry key="..\:/AndroidStudioProjects/ALittleMusic_1/app/src/main/res/layout/activity_playlist.xml" value="0.18947368421052632" />
         <entry key="..\:/AndroidStudioProjects/ALittleMusic_1/app/src/main/res/layout/activity_recent_play.xml" value="0.1649122807017544" />
         <entry key="..\:/AndroidStudioProjects/ALittleMusic_1/app/src/main/res/layout/activity_searchable.xml" value="0.2" />
@@ -48,10 +71,10 @@
         <entry key="..\:/AndroidStudioProjects/ALittleMusic_1/app/src/main/res/layout/common_item.xml" value="0.25364583333333335" />
         <entry key="..\:/AndroidStudioProjects/ALittleMusic_1/app/src/main/res/layout/custom_player_control_view.xml" value="0.1" />
         <entry key="..\:/AndroidStudioProjects/ALittleMusic_1/app/src/main/res/layout/fragment_home.xml" value="0.264" />
-        <entry key="..\:/AndroidStudioProjects/ALittleMusic_1/app/src/main/res/layout/fragment_mine.xml" value="0.2" />
+        <entry key="..\:/AndroidStudioProjects/ALittleMusic_1/app/src/main/res/layout/fragment_mine.xml" value="0.4466666666666667" />
         <entry key="..\:/AndroidStudioProjects/ALittleMusic_1/app/src/main/res/layout/fragment_toplist.xml" value="0.4" />
         <entry key="..\:/AndroidStudioProjects/ALittleMusic_1/app/src/main/res/layout/list_square_fragment.xml" value="0.1796875" />
-        <entry key="..\:/AndroidStudioProjects/ALittleMusic_1/app/src/main/res/layout/nav_header_main.xml" value="0.72" />
+        <entry key="..\:/AndroidStudioProjects/ALittleMusic_1/app/src/main/res/layout/nav_header_main.xml" value="0.37988826815642457" />
         <entry key="..\:/AndroidStudioProjects/ALittleMusic_1/app/src/main/res/layout/official_rankings_item.xml" value="0.4" />
         <entry key="..\:/AndroidStudioProjects/ALittleMusic_1/app/src/main/res/layout/play_list_activity.xml" value="0.23802083333333332" />
         <entry key="..\:/AndroidStudioProjects/ALittleMusic_1/app/src/main/res/layout/play_list_fragment.xml" value="0.12864583333333332" />
@@ -64,6 +87,8 @@
         <entry key="..\:/AndroidStudioProjects/ALittleMusic_1/app/src/main/res/layout/songlsit_item.xml" value="0.4" />
         <entry key="..\:/AndroidStudioProjects/ALittleMusic_1/app/src/main/res/layout/tiolist_item.xml" value="0.2" />
         <entry key="..\:/AndroidStudioProjects/ALittleMusic_1/app/src/main/res/layout/toplist_item.xml" value="0.2" />
+        <entry key="..\:/AndroidStudioProjects/ALittleMusic_1/app/src/main/res/layout/view_notify_big_play.xml" value="0.536" />
+        <entry key="..\:/AndroidStudioProjects/ALittleMusic_1/app/src/main/res/layout/view_notify_play.xml" value="0.25885416666666666" />
         <entry key="..\:/AndroidStudioProjects/ALittleMusic_1/app/src/main/res/menu/activity_main_drawer.xml" value="0.25364583333333335" />
         <entry key="..\:/AndroidStudioProjects/ALittleMusic_1/app/src/main/res/menu/bottom_nav_menu.xml" value="0.11944444444444445" />
         <entry key="..\:/AndroidStudioProjects/ALittleMusic_1/app/src/main/res/menu/options_menu.xml" value="0.1" />

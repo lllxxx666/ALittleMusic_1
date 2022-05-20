@@ -52,6 +52,10 @@ class SplashScreenActivity : Activity() {
         mCoroutineScope.launch(Dispatchers.IO) {
             Log.d("test", "----launch----")
             // TODO 异步线程
+            getSharedPreferences("data",Context.MODE_PRIVATE).edit().apply {
+                putStringSet("user_info",mutableSetOf("用户名","头像"))
+                apply()
+            }
             // Splash展示2秒钟
             delay(500)
             // Splash 展示完毕
@@ -69,9 +73,9 @@ class SplashScreenActivity : Activity() {
             it.apply()
         }
         val isLogin = prefs.getBoolean("isLogin",false)
-//        if (isLogin) MainActivity.actionStart(this)
-//        else LoginActivity.actionStart(this)
-        MainActivity.actionStart(this)
+        if (isLogin) MainActivity.actionStart(this)
+        else LoginActivity.actionStart(this)
+//        MainActivity.actionStart(this)
 //        LoginActivity.actionStart(this)
         this.finish()
     }

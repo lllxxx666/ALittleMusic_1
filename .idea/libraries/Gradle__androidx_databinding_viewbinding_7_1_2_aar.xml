@@ -9,8 +9,9 @@
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/60e0a3e7cc07c1ced683580877768679/transformed/jetified-viewbinding-7.1.2/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/585426814a03f39cc430fa85ffad5271/transformed/jetified-viewbinding-7.1.2/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/aa5af75e9efe55070f90304b97652bd9/transformed/jetified-viewbinding-7.1.2/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/aa5af75e9efe55070f90304b97652bd9/transformed/jetified-viewbinding-7.1.2/AndroidManifest.xml" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/aa5af75e9efe55070f90304b97652bd9/transformed/jetified-viewbinding-7.1.2/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/8988b4e21ae55414817b9c995bd36ba5/transformed/jetified-viewbinding-7.1.2/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/8988b4e21ae55414817b9c995bd36ba5/transformed/jetified-viewbinding-7.1.2/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/8988b4e21ae55414817b9c995bd36ba5/transformed/jetified-viewbinding-7.1.2/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

@@ -31,7 +31,7 @@ class PlayListAdapter(private val list: ArrayList<Song>)
         val holder = ViewHolder(view)
         holder.itemView.setOnClickListener {
 //            这时候是要去播放音乐了
-            PlayerActivity.actionStart(it.context,PlayerInfo(list, 0))
+            PlayerActivity.actionStart(it.context,PlayerInfo(list, holder.id))
         }
         return holder
     }
@@ -47,7 +47,9 @@ class PlayListAdapter(private val list: ArrayList<Song>)
         holder.desc.text = "${descS} - ${song.al.name}"
 
         holder.position.text = "${position + 1}"
-        holder.id = song.id
+//        holder.id = song.id
+        holder.id = position
+
     }
 
     override fun getItemCount(): Int = list.size

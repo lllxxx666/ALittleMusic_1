@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/player_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#CC000000"
@@ -12,14 +13,35 @@
         android:id="@+id/player_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:maxLines="1"
+        android:scrollbars="vertical"
         android:text="歌名"
         android:textAlignment="center"
         android:textColor="@color/white"
-        android:textSize="20.0sp"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/player_singer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="24dp"
+        android:maxLines="1"
+        android:scrollbars="vertical"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/player_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/player_title" />
 
 <!--    <com.airbnb.lottie.LottieAnimationView-->
 <!--        android:id="@+id/player_lottie"-->
@@ -28,93 +50,211 @@
 <!--        android:layout_centerInParent="true"-->
 <!--        android:elevation="5dp"-->
 <!--        android:foregroundGravity="center"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/player_info"-->
 <!--        app:layout_constraintEnd_toEndOf="parent"-->
 <!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/player_title"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/player_singer"-->
 <!--        app:lottie_autoPlay="true"-->
 <!--        app:lottie_rawRes="@raw/music" />-->
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/player_img"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_centerInParent="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/test_1"
+        app:layout_constraintBottom_toTopOf="@+id/player_info"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/player_singer"
+        app:riv_corner_radius="200dp" />
 
 
-    <com.google.android.exoplayer2.ui.PlayerView
-        android:id="@+id/video_view"
+    <!--    <com.google.android.exoplayer2.ui.PlayerView-->
+    <!--        android:id="@+id/video_view"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="match_parent"-->
+    <!--        app:show_buffering="when_playing"-->
+    <!--        app:show_shuffle_button="true"-->
+    <!--        app:controller_layout_id="@layout/custom_player_control_view" />-->
+
+    <LinearLayout
+        android:id="@+id/player_info"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:show_buffering="when_playing"
-        app:show_shuffle_button="true"
-        app:controller_layout_id="@layout/custom_player_control_view" />
+        android:layout_height="60dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
-<!--    <LinearLayout-->
-<!--        android:id="@+id/player_info"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="60dp"-->
-<!--        android:gravity="center"-->
-<!--        android:orientation="horizontal"-->
-<!--        app:layout_constraintBottom_toTopOf="@+id/player_manager"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent">-->
+        <TextView
+            android:id="@+id/curTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="0:00"
+            android:textColor="#ffffffff"
+            android:textSize="14sp" />
 
-<!--        <TextView-->
-<!--            android:id="@+id/curTime"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginStart="20dp"-->
-<!--            android:text="0:10"-->
-<!--            android:textColor="#ffffffff"-->
-<!--            android:textSize="14sp" />-->
+        <SeekBar
+            android:id="@+id/seekbar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:layout_marginBottom="40dp"
+            android:layout_weight="1.0" />
 
-<!--        <SeekBar-->
-<!--            android:id="@+id/seekbar"-->
-<!--            android:layout_width="0dp"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_margin="20dp"-->
-<!--            android:layout_marginBottom="40dp"-->
-<!--            android:layout_weight="1.0" />-->
+        <TextView
+            android:id="@+id/endTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:text="4:10"
+            android:textColor="#ffffffff"
+            android:textSize="14sp" />
+    </LinearLayout>
 
-<!--        <TextView-->
-<!--            android:id="@+id/endTime"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginEnd="20dp"-->
-<!--            android:text="4:10"-->
-<!--            android:textColor="#ffffffff"-->
-<!--            android:textSize="14sp" />-->
-<!--    </LinearLayout>-->
+    <LinearLayout
+        android:id="@+id/fragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@drawable/layer_mask"
+        android:layoutDirection="ltr"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-<!--    <RadioGroup-->
-<!--        android:id="@+id/player_manager"-->
-<!--        android:layout_width="fill_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginBottom="16dp"-->
-<!--        android:gravity="center_vertical"-->
-<!--        android:orientation="horizontal"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent">-->
+    <!--    <com.dirror.lyricviewx.LyricViewX-->
+    <!--        android:id="@+id/lyricViewX"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="500dp"-->
+    <!--        app:lrcPadding="16dp">-->
+    <!--    </com.dirror.lyricviewx.LyricViewX>-->
 
-<!--        <RadioButton-->
-<!--            android:id="@+id/play_cycle"-->
-<!--            style="@style/playStyle"-->
-<!--            android:drawableTop="@drawable/play_cycle" />-->
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/player_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
-<!--        <RadioButton-->
-<!--            android:id="@+id/play_l"-->
-<!--            style="@style/playStyle"-->
-<!--            android:drawableTop="@drawable/play_l" />-->
+        <TextView
+            android:id="@id/exo_position"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:includeFontPadding="true"
+            android:paddingLeft="8dp"
+            android:paddingRight="4dp"
+            android:textColor="#FFBEBEBE"
+            android:textSize="14sp"
+            android:textStyle="bold" />
 
-<!--        <RadioButton-->
-<!--            android:id="@+id/play_pause"-->
-<!--            style="@style/playStyle"-->
-<!--            android:drawableTop="@drawable/play" />-->
+        <View
+            android:id="@id/exo_progress_placeholder"
+            android:layout_width="0dp"
+            android:layout_height="26dp"
+            android:layout_weight="1" />
 
-<!--        <RadioButton-->
-<!--            android:id="@+id/play_r"-->
-<!--            style="@style/playStyle"-->
-<!--            android:drawableTop="@drawable/play_r" />-->
+        <TextView
+            android:id="@id/exo_duration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:includeFontPadding="true"
+            android:paddingLeft="4dp"
+            android:paddingRight="8dp"
+            android:textColor="#FFBEBEBE"
+            android:textSize="14sp"
+            android:textStyle="bold" />
 
-<!--        <RadioButton-->
-<!--            android:id="@+id/play_list"-->
-<!--            style="@style/playStyle"-->
-<!--            android:drawableTop="@drawable/play_list" />-->
-<!--    </RadioGroup>-->
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <ImageButton
+            android:id="@+id/exo_repeat"
+            style="@style/ExoMediaButton"
+            app:srcCompat="@drawable/exo_icon_repeat_all" />
+
+        <ImageButton
+            android:id="@+id/exo_prev"
+            style="@style/ExoMediaButton.Previous" />
+
+        <ImageButton
+            android:id="@+id/exo_play"
+            style="@style/ExoMediaButton.Play" />
+
+        <ImageButton
+            android:id="@+id/exo_pause"
+            style="@style/ExoMediaButton.Pause"
+            android:visibility="gone" />
+
+        <ImageButton
+            android:id="@+id/exo_next"
+            style="@style/ExoMediaButton.Next" />
+
+        <ImageButton
+            android:id="@+id/exo_queue"
+            style="@style/ExoMediaButton"
+            android:src="@drawable/exo_icon_queue" />
+
+
+    </LinearLayout>
+
+    <!--    <fragment-->
+    <!--        android:id="@+id/fragment"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        tools:layout="@layout/custom_player_control_view" />-->
+    <!--    <RadioGroup-->
+    <!--        android:id="@+id/player_manager"-->
+    <!--        android:layout_width="fill_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginBottom="16dp"-->
+    <!--        android:gravity="center_vertical"-->
+    <!--        android:orientation="horizontal"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent">-->
+
+    <!--        <RadioButton-->
+    <!--            android:id="@+id/play_cycle"-->
+    <!--            style="@style/playStyle"-->
+    <!--            android:drawableTop="@drawable/play_cycle" />-->
+
+    <!--        <RadioButton-->
+    <!--            android:id="@+id/play_l"-->
+    <!--            style="@style/playStyle"-->
+    <!--            android:drawableTop="@drawable/play_l" />-->
+
+    <!--        <RadioButton-->
+    <!--            android:id="@+id/play_pause"-->
+    <!--            style="@style/playStyle"-->
+    <!--            android:drawableTop="@drawable/play" />-->
+
+    <!--        <RadioButton-->
+    <!--            android:id="@+id/play_r"-->
+    <!--            style="@style/playStyle"-->
+    <!--            android:drawableTop="@drawable/play_r" />-->
+
+    <!--        <RadioButton-->
+    <!--            android:id="@+id/play_list"-->
+    <!--            style="@style/playStyle"-->
+    <!--            android:drawableTop="@drawable/play_list" />-->
+    <!--    </RadioGroup>-->
 </androidx.constraintlayout.widget.ConstraintLayout>

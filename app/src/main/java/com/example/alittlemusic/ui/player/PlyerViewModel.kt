@@ -10,12 +10,17 @@ import com.example.alittlemusic.ui.playlist.PlayListActivity
 import kotlinx.coroutines.launch
 
 class PlyerViewModel : ViewModel() {
-    private val searchId = MutableLiveData<Number>()
+    private val songId = MutableLiveData<Number>()
     var playList = ArrayList<Song>()
 
-    val playListLiveData = Transformations.switchMap(searchId){ it ->
+    val playListLiveData = Transformations.switchMap(songId){ it ->
         PlayListRepository.getPlayListAll(it)
     }
+
+//    val songUrl = MutableLiveData<String>()
+//    val songUrlLiveData = Transformations.switchMap(songId){  it ->
+//
+//    }
 
     init {
 //        viewModelScope.launch {

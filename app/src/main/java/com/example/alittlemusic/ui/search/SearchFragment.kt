@@ -117,7 +117,7 @@ class SearchFragment : Fragment() {
                 onBind {
                     val data = getModel<AllResult.PlayLists>()
                     findView<TextView>(R.id.play_list_title).text = data.name
-                    val desc= "${data.trackCount}首,by${data.creator.nickname},播放${data.playCount}"
+                    val desc= "${data.trackCount}首，by${data.creator.nickname}，播放${data.playCount}"
                     findView<TextView>(R.id.play_list_count).text = desc
                     val img = findView<RoundedImageView>(R.id.play_list_img)
                     Glide.with(this@SearchFragment).load(data.coverImgUrl).dontAnimate().into(img)
@@ -160,13 +160,12 @@ class SearchFragment : Fragment() {
 
     private fun initPlayListView() {
         binding.searchResultList.apply {
-//            this.models = viewModel.playList
             this.linear().divider(R.drawable.divider_horizontal).setup {
                 addType<PlayListResult.Playlists> { R.layout.playlist_item }
                 onBind {
                     val data = getModel<PlayListResult.Playlists>()
                     findView<TextView>(R.id.play_list_title).text = data.name
-                    val desc= "${data.trackCount}首,by${data.creator.nickname},播放${data.playCount}"
+                    val desc= "${data.trackCount}首，by${data.creator.nickname}，播放${data.playCount}"
                     findView<TextView>(R.id.play_list_count).text = desc
                     val img = findView<RoundedImageView>(R.id.play_list_img)
                     Glide.with(this@SearchFragment).load(data.coverImgUrl).dontAnimate().into(img)
@@ -195,14 +194,15 @@ class SearchFragment : Fragment() {
     }
 
     private fun hideLoading() {
+        activity?.findViewById<RelativeLayout>(R.id.search_after).let {
+            it?.visibility = View.VISIBLE
+        }
+
+        binding.searchResultSongs.visibility = View.VISIBLE
 
         activity?.findViewById<ProgressBar>(R.id.search_loading).let {
             it?.visibility = View.GONE
         }
-        activity?.findViewById<RelativeLayout>(R.id.search_after).let {
-            it?.visibility = View.VISIBLE
-        }
-        binding.searchResultSongs.visibility = View.VISIBLE
     }
 
 }

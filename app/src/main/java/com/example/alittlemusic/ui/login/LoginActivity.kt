@@ -4,7 +4,6 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.content.Intent.FLAG_ACTIVITY_NEW_TASK
-import android.graphics.Color
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -22,12 +21,6 @@ import com.example.alittlemusic.databinding.ActivityLoginBinding
 
 import com.example.alittlemusic.R
 import com.example.alittlemusic.util.toast
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
-import java.lang.reflect.Array.get
-import java.util.logging.Handler
 
 class LoginActivity : AppCompatActivity() {
 
@@ -56,8 +49,8 @@ class LoginActivity : AppCompatActivity() {
         val loading = binding.loading
 
 //        选择登录方式
-        val login_text :RadioGroup = findViewById(R.id.login_text)
-        login_text.setOnCheckedChangeListener(RadioGroup.OnCheckedChangeListener{ radioGroup, checkedId ->
+        val login_text :RadioGroup? = binding.loginText
+        login_text?.setOnCheckedChangeListener(RadioGroup.OnCheckedChangeListener{ radioGroup, checkedId ->
             when(checkedId){
                 R.id.phone_login_text -> phoneLogin()
                 R.id.email_login_text -> emailLogin()
@@ -149,10 +142,20 @@ class LoginActivity : AppCompatActivity() {
 
         loginViewModel.loginLiveData.observe(this, Observer { result ->
             val data = result.getOrNull()
-            Log.d("test","让我看看有么有走到这")
-//            if (data != null){
-//                loginViewModel.loginAfter(true)
-//            }else  loginViewModel.loginAfter(false)
+
+//            Log.d("test","让我看看有么有走到这")
+            if (data != null){
+                when(data.code){
+                    400 -> toast("登录失败，请检测账户/密码是否正确")
+                    502 -> toast("网关错误，请尝试清理缓存后再试")
+                    504 -> toast("前方网络拥堵，请稍后再试")
+                    200 ->updateUiWithUser(LoggedInUserView(data.profile.nickname))
+                    else -> toast("登录失败")
+                }
+            }else  {
+                binding.loading.visibility = View.GONE
+                toast("登录失败，请检测账户/密码是否正确")
+            }
         })
     }
 
@@ -180,7 +183,7 @@ class LoginActivity : AppCompatActivity() {
             Toast.LENGTH_LONG
         ).show()
         android.os.Handler().postDelayed(Runnable {
-          //  MainActivity.actionStart(this)
+            MainActivity.actionStart(this)
         }, 1800)
     }
 

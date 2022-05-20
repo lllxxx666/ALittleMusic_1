@@ -2,7 +2,6 @@ package com.example.alittlemusic.ui.playlist
 
 import android.content.Context
 import android.content.Intent
-import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -59,20 +58,26 @@ class PlayListActivity : BaseActivity() {
         binding.playlistTitle.text = playListInfo.title
         binding.listCount.text = "( ${playListInfo.trackCount} )"
 
+//        歌单的id
+        listId = intent.getLongExtra("playListId", 6952220954)
+
 //        控制不同的布局
-        intent.getStringExtra("from").apply {
+        val from = intent.getStringExtra("from")
+        from.apply {
             when(this){
                 "TopList" -> {
                     binding.topPlaylistTitle.text = playListInfo.title
                     binding.topPlaylistSub.visibility = View.VISIBLE
                     binding.topPlaylistTitle.visibility = View.VISIBLE
-                    isCollected()
-                    getImg()
+                    vm.getPlayList()
+                    vm.getCollectList() //获得用户收藏歌单列表
+                    getImg()    // 根据封面调整色调
                 }
                 "RPlayList" -> {
                     binding.playlistImg.visibility = View.VISIBLE
                     binding.playlistTitle.visibility = View.VISIBLE
-                    isCollected()
+                    vm.getPlayList()
+                    vm.getCollectList()
                     getImg()
                 }
                 "dailySongs" -> {
@@ -84,6 +89,7 @@ class PlayListActivity : BaseActivity() {
                     val day = System.currentTimeMillis().let {
                         SimpleDateFormat("dd").format(it)
                     }
+                    vm.getDailySong()
                     binding.dailyPlaylistDay.text = day
                     binding.dailyPlaylistMm.text = "/$month"
                     binding.dailyPlaylistDay.visibility = View.VISIBLE
@@ -95,12 +101,22 @@ class PlayListActivity : BaseActivity() {
         }
 
 //        加载歌单的歌曲列表
-        listId = intent.getLongExtra("playListId", 6952220954)
         vm.playListLiveData.observe(this, Observer { result ->
             val list = result.getOrNull()
             if (list != null){
                 vm.playList = list as ArrayList<Song>
                 showPlayList()
+            }else{
+                Toast.makeText(this, "无法成功获取歌单信息", Toast.LENGTH_SHORT).show()
+                result.exceptionOrNull()?.printStackTrace()
+            }
+        })
+//        加载每日歌曲
+        vm.dailySongLiveData.observe(this, Observer { result ->
+            val list = result.getOrNull()
+            if (list != null){
+                vm.dailySong = list as ArrayList<Song>
+                showDailySongs()
             }else{
                 Toast.makeText(this, "无法成功获取歌单信息", Toast.LENGTH_SHORT).show()
                 result.exceptionOrNull()?.printStackTrace()
@@ -113,13 +129,27 @@ class PlayListActivity : BaseActivity() {
         vm.collectLiveData.observe(this, Observer { result ->
             val data = result.getOrNull()
             if (data?.code == 200){
-               toast(data.message)
+                toast(data.message)
                 MyApplication.CollectedList.add(playListInfo.id!!)
+                binding.collectListBtn.apply {
+                    this.text = data.message
+                }
             }else{
+                toast("收藏失败")
+                binding.collectListBtn.apply {
+                    this.isChecked = !this.isChecked    // 失败则将收藏按钮的状态改回去
+                }
                 result.exceptionOrNull()?.printStackTrace()
             }
         })
 
+        vm.collectListLiveData.observe(this, Observer { result ->
+            val data = result.getOrNull()
+            if (data != null){
+                val collectList= data.filter { it.creator.userId != MyApplication.uid }.map { it.id }
+                isCollected(collectList)
+            }
+        })
     }
 
     private fun getImg() {
@@ -139,13 +169,13 @@ class PlayListActivity : BaseActivity() {
             }
         }
     }
-    fun isCollected(){
+    fun isCollected(collectList: List<Long>) {
         //        歌单是否已被收藏
-        val collectdList = MyApplication.CollectedList
-        val isC = playListInfo.id in collectdList
+        val isC = playListInfo.id in collectList
         binding.collectListBtn.apply {
             this.visibility = View.VISIBLE
             if (isC) {  // 已收藏状态，取消收藏
+                this.isChecked = true
                 text = getString(R.string.collected)
                 this.setOnClickListener {
                     vm.collect(2)
@@ -162,6 +192,13 @@ class PlayListActivity : BaseActivity() {
         binding.plistLoading.visibility = View.GONE
 
         val adapter = PlayListAdapter(vm.playList)
+        binding.mPlayList.adapter = adapter
+    }
+    fun showDailySongs(){
+        binding.mPlayList.visibility = View.VISIBLE
+        binding.plistLoading.visibility = View.GONE
+
+        val adapter = PlayListAdapter(vm.dailySong)
         binding.mPlayList.adapter = adapter
     }
 }

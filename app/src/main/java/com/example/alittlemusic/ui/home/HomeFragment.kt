@@ -1,10 +1,12 @@
 package com.example.alittlemusic.ui.home
 
+import android.app.Activity
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -13,6 +15,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.bumptech.glide.Glide
+import com.drake.brv.utils.grid
 import com.drake.brv.utils.linear
 import com.drake.brv.utils.setup
 import com.example.alittlemusic.R
@@ -22,6 +25,7 @@ import com.example.alittlemusic.data.Adapter.BannerPagerAdapter
 import com.example.alittlemusic.data.Adapter.PlayListInfo
 import com.example.alittlemusic.data.Adapter.RPlayListAdapter
 import com.example.alittlemusic.data.logic.model.DayRecommendResponse
+import com.example.alittlemusic.data.logic.model.PlayListResult
 import com.example.alittlemusic.ui.listSquare.ListSquareActivity
 import com.example.alittlemusic.ui.playlist.PlayListActivity
 import com.example.alittlemusic.util.toast
@@ -119,8 +123,12 @@ class HomeFragment : Fragment() {
                 ListSquareActivity.actionStart(MyApplication.context)
             }
         }
+
+
         return root
     }
+
+
 //      每日推荐歌单
     private fun initDailyPlayList() {
         homeViewModel.dailyPlayListLiveData.observe(viewLifecycleOwner, Observer { result ->
@@ -133,15 +141,20 @@ class HomeFragment : Fragment() {
             }
         })
         binding.dailyRplaylist.apply {
-            this.linear(RecyclerView.HORIZONTAL).setup {
+            this.grid(3).setup {
                 addType<DayRecommendResponse.Recommend> { R.layout.rplaylist_item }
                 onBind {
                     val data = getModel<DayRecommendResponse.Recommend>()
-                    if (data.creator.userType != 10) {
-                        findView<TextView>(R.id.rpaylist_title).text = data.name
-                        val img = findView<RoundedImageView>(R.id.rpaylist_img)
-                        Glide.with(this@HomeFragment).load(data.picUrl).dontAnimate().into(img)
-                    }
+                    findView<TextView>(R.id.rpaylist_title).text = data.name
+                    val img = findView<RoundedImageView>(R.id.rpaylist_img)
+                    Glide.with(this@HomeFragment).load(data.picUrl).dontAnimate().into(img)
+                }
+                R.id.rplaylist_item.onClick {
+                    toast("跳转歌单页面")
+                    val data = this.getModel<DayRecommendResponse.Recommend>()
+                    PlayListActivity.actionStart(MyApplication.context,"RPlayList",data.id,
+                        PlayListInfo(data.id,data.picUrl,data.name,data.trackCount)
+                    )
                 }
             }.models = homeViewModel.dailyPlayList
 

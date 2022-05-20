@@ -25,12 +25,6 @@ class HomeViewModel : ViewModel() {
     }
 
 
-//  每日推荐歌曲
-    val dailySong = ArrayList<DayRecommendSongResponse.DailySong>()
-    val dailySongLiveData = Transformations.switchMap(refreshLiveData){
-        HomeRepository.getDailySong()
-    }
-
     //  每日推荐歌单
     val dailyPlayList = ArrayList<DayRecommendResponse.Recommend>()
     val dailyPlayListLiveData = Transformations.switchMap(refreshLiveData){
